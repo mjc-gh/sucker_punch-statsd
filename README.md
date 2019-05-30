@@ -22,11 +22,18 @@ Or install it yourself as:
 ## Usage
 
 First, configure `SuckerPunch::Statsd` with a `:client` and optional
-`:prefix`
+`:prefix`.
 
 ```ruby
 SuckerPunch::Statsd.configure client: statsd_client, prefix: 'my_app'
 ```
+
+The `:client` argument should be a Statsd instance that
+responds to a `measure` method. Any of the following should work:
+
+- [statsd](https://github.com/reinh/statsd)
+- [statsd-instrument](https://github.com/Shopify/statsd-instrument)
+- [dogstatsd-ruby](https://github.com/DataDog/dogstatsd-ruby)
 
 Now, include the module in any job class that you want to measure
 
