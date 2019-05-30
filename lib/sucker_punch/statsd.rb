@@ -5,8 +5,8 @@ require 'sucker_punch/statsd/null_client'
 
 module SuckerPunch
   module Statsd
-    def self.configure(prefix: nil, client:)
-      @prefix = prefix
+    def self.configure(namespace: nil, client:)
+      @namespace = namespace
       @client = client
     end
 
@@ -14,8 +14,8 @@ module SuckerPunch
       @client || NullClient.instance
     end
 
-    def self.prefix
-      @prefix
+    def self.namespace
+      @namespace
     end
 
     def self.included(base)
@@ -26,7 +26,7 @@ module SuckerPunch
     module ClassMethods
       def stats_namespace
         namespace = ''
-        namespace << "#{Statsd.prefix}." unless Statsd.prefix.nil?
+        namespace << "#{Statsd.namespace}." unless Statsd.namespace.nil?
         namespace << name
         namespace
       end

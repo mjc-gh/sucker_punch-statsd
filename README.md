@@ -22,18 +22,11 @@ Or install it yourself as:
 ## Usage
 
 First, configure `SuckerPunch::Statsd` with a `:client` and optional
-`:prefix`.
+`:namespace`.
 
 ```ruby
 SuckerPunch::Statsd.configure client: statsd_client, prefix: 'my_app'
 ```
-
-The `:client` argument should be a Statsd instance that
-responds to a `measure` method. Any of the following should work:
-
-- [statsd](https://github.com/reinh/statsd)
-- [statsd-instrument](https://github.com/Shopify/statsd-instrument)
-- [dogstatsd-ruby](https://github.com/DataDog/dogstatsd-ruby)
 
 Now, include the module in any job class that you want to measure
 
@@ -50,13 +43,26 @@ class LogJob
 end
 ```
 
+### Configuration Arguments
+
+The `:client` argument should be a Statsd instance that
+responds to a `measure` method. Any of the following should work:
+
+- [statsd](https://github.com/reinh/statsd)
+- [statsd-instrument](https://github.com/Shopify/statsd-instrument)
+- [dogstatsd-ruby](https://github.com/DataDog/dogstatsd-ruby)
+
+The measure metrics produced by this gem will use the Job's class name
+as the metric name. The optional `:namespace` argument will be prepended
+to every metric name when this argument is provided.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT
 License](https://opensource.org/licenses/MIT).
 
-It was built in my spare time to support my work at [Knotch,
-](https://www.knotch.it), where we help make brands smarter!
+It was built in my spare time to support my work at
+[Knotch](https://www.knotch.it), where we help make brands smarter!
 
 ## Code of Conduct
 

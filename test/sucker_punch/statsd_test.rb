@@ -17,11 +17,11 @@ class SuckerPunch::StatsdTest < Minitest::Test
     mock_client.verify
   end
 
-  test 'invokes stats client measure with prefixed namespace' do
+  test 'invokes stats client measure with namespace' do
     mock_client = Minitest::Mock.new
     mock_client.expect :measure, nil, %w(statslol.TestJob)
 
-    SuckerPunch::Statsd.configure client: mock_client, prefix: 'statslol'
+    SuckerPunch::Statsd.configure client: mock_client, namespace: 'statslol'
     TestJob.new.perform
 
     mock_client.verify
