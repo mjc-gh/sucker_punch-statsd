@@ -1,0 +1,26 @@
+PATH
+  remote: .
+  specs:
+    sucker_punch-statsd (0.1.0)
+      sucker_punch
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concurrent-ruby (1.1.5)
+    minitest (5.11.3)
+    rake (10.5.0)
+    sucker_punch (2.1.2)
+      concurrent-ruby (~> 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.17)
+  minitest (~> 5.0)
+  rake (~> 10.0)
+  sucker_punch-statsd!
+
+BUNDLED WITH
+   1.17.2
