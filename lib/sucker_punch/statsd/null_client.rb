@@ -3,7 +3,7 @@ module SuckerPunch
     class NullClient
       include Singleton
 
-      def measure(*)
+      def time(*)
         yield
       end
 

@@ -34,7 +34,7 @@ module SuckerPunch
 
     module PrependMethods
       def perform(*)
-        SuckerPunch::Statsd.client.measure self.class.stats_namespace do
+        SuckerPunch::Statsd.client.time self.class.stats_namespace do
           super
         end
       end
