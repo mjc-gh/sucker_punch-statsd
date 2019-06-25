@@ -33,7 +33,7 @@ module SuckerPunch
     end
 
     module PrependMethods
-      def perform
+      def perform(*)
         SuckerPunch::Statsd.client.measure self.class.stats_namespace do
           super
         end
