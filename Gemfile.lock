@@ -9,7 +9,7 @@ GEM
   specs:
     concurrent-ruby (1.1.5)
     minitest (5.11.3)
-    rake (10.5.0)
+    rake (13.0.1)
     sucker_punch (2.1.2)
       concurrent-ruby (~> 1.0)
 
@@ -19,7 +19,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.17)
   minitest (~> 5.0)
-  rake (~> 10.0)
+  rake (~> 13.0)
   sucker_punch-statsd!
 
 BUNDLED WITH
